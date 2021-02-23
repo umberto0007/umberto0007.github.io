@@ -1,0 +1,51 @@
+@media screen and (max-width: 800px){
+body{
+width: 800px;
+}
+.content{
+width: 770px;   
+}
+.image_chart{
+ width: 100%;
+ margin-top: 15px;   
+}
+
+.form_head input{
+width: 246.6px;
+}
+.form_head .btn{
+width: 246.6px;
+}
+
+.contact{
+display: none;
+}
+.h1{
+font-size: 39px;
+}
+.lr{
+font-size: 22px;
+}
+.schedule_title{
+font-size: 20px;
+}
+
+.blog{
+display: flex;
+flex-direction: column;
+}
+.about02, .about04{
+padding: 0;
+}
+.h2, .h_2, .h__2, .h02, .h_02{
+font-size: 43px;
+}
+
+.h4{
+font-size: 27px;
+}
+.comment01_text{
+font-size: 28px;    
+}
+
+}
