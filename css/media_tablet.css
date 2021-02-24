@@ -1,0 +1,101 @@
+@media screen and (max-width: 800px){
+body{
+width: 800px;
+}
+.content{
+width: 770px;   
+}
+.image_chart{
+ width: 100%;
+ margin-top: 15px;   
+}
+
+.form_head input{
+width: 246.6px;
+}
+.form_head .btn{
+width: 246.6px;
+}
+
+.contact{
+display: none;
+}
+.h1{
+font-size: 39px;
+}
+.lr{
+font-size: 22px;
+}
+.schedule_title{
+font-size: 20px;
+}
+
+.block{
+display: flex;
+flex-direction: column;
+}
+
+.block_1, .block_2, .block_3, .block_transparent_1, .block_transparent_2, .block_transparent_3{
+width: 100%;
+border: 1px solid #eeeeee;
+}
+
+.block_transparent_2{
+box-shadow: none;
+}
+
+.h3{
+font-size: 45px;
+}
+
+.services{
+font-size: 20px;
+}
+
+.lin{
+display: none;
+}
+
+
+.block_2, .block_3{
+margin-top: 30px;
+}
+
+
+
+.bt{
+margin: 0 auto;
+margin-top: 16px;
+font-size: 19px;
+}
+
+.work{
+padding-top: 20px;
+}
+
+.blog{
+display: flex;
+flex-direction: column;
+}
+.about02, .about04{
+padding: 0;
+}
+.h2, .h_2, .h__2, .h02, .h_02{
+font-size: 40px;
+}
+
+.h02{
+padding-bottom: 40px;
+}
+
+.h4{
+font-size: 27px;
+}
+.comment_text{
+font-size: 27px;    
+}
+
+.shadowpicture{
+display: none;
+}
+}
