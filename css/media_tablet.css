@@ -1,0 +1,109 @@
+@media screen and (max-width: 800px){
+    body{
+    width: 800px;
+    }
+    .content{
+    width: 770px;
+     
+    }
+
+    .head{
+        display: flex;
+        padding-top: 15px;
+  
+    }
+    .contacts{
+        display: none;
+    }
+
+    .text_1, .text_2, .text_3, .text_4{
+        font-size: 16px;
+    }
+
+    .title_fish{
+        padding: 247px 0 0 232px;
+    }
+
+    .text_fish01{
+       
+        padding: 46px 0 0 281px;
+    }
+
+    .text_fish05{
+        
+        padding: 200px 4px 0 0;
+    }
+
+    .text_fish05{
+        padding: 116px 4px 0 0;
+
+    }
+
+    .text_fish02{
+      
+        padding: 135px 0 0 0;
+    }
+
+    .text_fish03{
+        
+        padding: 415px 0 0 9px;
+    }
+
+    .text_fish07{
+        padding: 585px 52px 0 0;
+    }
+
+    .text_fish04{
+        padding: 584px 0 0 42px;
+    }
+
+    .text_fish06{
+        padding: 417px 27px 0 0;
+    }
+
+    .banner::before{
+            content: "";
+            position: absolute;
+            top: 0%;
+            width: 6%;
+            height: 1rem;
+            left: 50%;
+            background: linear-gradient(to right top, transparent 49.5%, #fff 50%) left / 50.025% 100% no-repeat, linear-gradient(to left top, transparent 49.5%, #fff 50%) right / 50.025% 100% no-repeat;
+            padding-top: 1%;
+    }
+
+    .banner::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        width: 10%;
+        height: 2rem;
+        left: 50%;
+        background: linear-gradient(to right top, transparent 49.5%, #6ac7ea 50%) left / 50.025% 100% no-repeat, linear-gradient(to left top, transparent 49.5%, #6ac7ea 50%) right / 50.025% 100% no-repeat;
+        padding-top: 1%;
+    }
+
+    .our_product::before{
+    content: "";
+    position: absolute;
+    top: 0%;
+    width: 10%;
+    height: 2rem;
+    left: 50%;
+    background: linear-gradient(to right top, transparent 49.5%, #fff 50%) left / 50.025% 100% no-repeat, linear-gradient(to left top, transparent 49.5%, #fff 50%) right / 50.025% 100% no-repeat;
+    padding-top: 1%;
+}
+ 
+.left_info{
+    margin-top: 50px;
+}
+
+.right_info{
+    margin-top: 56px;
+}
+
+.inf_text_1, .inf_text_2, .inf_text_3, .inf_text_4, .inf_text_5, .inf_text_6, .inf_text_7, .inf_text_8, .white_text{
+font-size: 13px;
+}
+
+}
