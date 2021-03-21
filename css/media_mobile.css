@@ -1,0 +1,171 @@
+@media screen and (max-width: 480px){
+    body{
+    width: 480px;
+    }
+    .content{
+    width: 450px;   
+    }
+
+    .head{
+        display: flex;
+        flex-direction: column;
+      
+    }
+
+    .achievement{
+        padding-top: 30px;
+    }
+
+    .red_1, .red_2, .red_3, .blue_1, .blue_2, .blue_3{
+        font-size: 20px;
+    } 
+
+    .shadow_banner{
+        display: none;
+    }
+
+
+
+    .banner_info{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    h1{
+        font-size: 20px;
+    }
+
+    .main{
+        font-size: 19px;
+    }
+
+    .gost{
+        display: none;
+    }
+
+    .image{
+        width: 368px;
+        height: 358px;
+    }
+
+    .title_fish{
+        padding: 149px 0 0 109px;
+        font-size: 26px;
+    }
+
+    .text_fish01{
+        padding: 52px 0 0 152px;
+        font-size: 14px;
+    }
+
+    .text_fish05{
+        padding: 76px 2px 0 0;
+        font-size: 14px;
+    }
+
+    .text_fish02{
+        padding: 110px 0 0 0;
+        font-size: 14px;
+    }
+
+    .text_fish03{
+        padding: 249px 0 0 3px;
+        font-size: 14px;
+    }
+
+    .text_fish04{
+        padding: 422px 0 0 7px;
+        font-size: 14px;
+    }
+
+    .text_fish06{
+        padding: 259px 0px 0 0;
+        font-size: 14px;
+    }
+
+    .text_fish07{
+        padding: 425px 3px 0 0;
+        font-size: 14px;
+    }
+
+    .our_product_info{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+    }
+
+    h2{
+        font-size: 25px;
+    }
+
+    .right_info{
+        margin-top: 325px;
+    }
+
+    .left_info{
+        margin: 0 0 10px 0;
+    }
+
+  
+    .spec{
+        font-size: 17px;
+        line-height: 23px;
+    }
+
+    .inf_text_1, .inf_text_2, .inf_text_3, .inf_text_4, .inf_text_5, .inf_text_6, .inf_text_7, .inf_text_8, .white_text{
+        font-size: 20px;
+        }
+
+    .blank_title{
+        font-size: 25px;
+        padding-top: 22px;
+    } 
+
+    .blank_text{
+        padding-top: 5px;
+        font-size: 15px;
+    }
+    
+    .img_art{
+        display: none;
+    }
+
+    .form_blank{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .name_form, .number_form{
+        margin: 0;
+    }
+
+    img{
+        width: 20%;
+    }
+
+    .diploms{
+        display: flex;
+        justify-content: space-evenly;
+    
+    }
+
+
+    .footer_content{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+
+
+    
+   
+  
+
+    
+
+ 
+}    
