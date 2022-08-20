@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RPG баттл</title>
+  </head>
+  <body>
+    <script>
+      const monster = {
+        maxHealth: 10,
+        name: "Лютый",
+        moves: [
+          {
+            name: "Удар когтистой лапой",
+            physicalDmg: 3, // физический урон
+            magicDmg: 0, // магический урон
+            physicArmorPercents: 20, // физическая броня
+            magicArmorPercents: 20, // магическая броня
+            cooldown: 0, // ходов на восстановление
+          },
+          {
+            name: "Огненное дыхание",
+            physicalDmg: 0,
+            magicDmg: 4,
+            physicArmorPercents: 0,
+            magicArmorPercents: 0,
+            cooldown: 3,
+          },
+          {
+            name: "Удар хвостом",
+            physicalDmg: 2,
+            magicDmg: 0,
+            physicArmorPercents: 50,
+            magicArmorPercents: 0,
+            cooldown: 2,
+          },
+        ],
+      };
+
+      const mage = {
+        name: "Евстафий",
+        moves: [
+          {
+            name: "Удар боевым кадилом",
+            physicalDmg: 2,
+            magicDmg: 0,
+            physicArmorPercents: 0,
+            magicArmorPercents: 50,
+            cooldown: 0,
+          },
+          {
+            name: "Вертушка левой пяткой",
+            physicalDmg: 4,
+            magicDmg: 0,
+            physicArmorPercents: 0,
+            magicArmorPercents: 0,
+            cooldown: 4,
+          },
+          {
+            name: "Каноничный фаербол",
+            physicalDmg: 0,
+            magicDmg: 5,
+            physicArmorPercents: 0,
+            magicArmorPercents: 0,
+            cooldown: 3,
+          },
+          {
+            name: "Магический блок",
+            physicalDmg: 0,
+            magicDmg: 0,
+            physicArmorPercents: 100,
+            magicArmorPercents: 100,
+            cooldown: 4,
+          },
+        ],
+      };
+
+      /*--------------------------------------------*/
+
+      function difficultySelection() {
+        const low = "низкая";
+        const hi = "высокая";
+        diff = prompt(`Выбирете сложность игры: ${low} или ${hi}!`);
+        if (diff == low) mage.maxHealth = 8;
+        if (diff == hi) mage.maxHealth = 6;
+
+        alert(
+          `Выбранная Вами сложность игры ${diff}. Согласно выбранному Вами уровню сложности здоровье Евстафия равно ${mage.maxHealth}!`
+        );
+        document.write(
+          `Выбранная Вами сложность игры ${diff}. Согласно выбранному Вами уровню сложности здоровье Евстафия равно ${mage.maxHealth}!`
+        );
+      }
+      difficultySelection();
+      let actMonster;
+      function monsterAttack() {
+        const rand = Math.floor(Math.random() * monster.moves.length);
+        actMonster = monster.moves[rand];
+        const talkMonster = confirm(
+          `Лютый: использую ${JSON.stringify(actMonster.name)}!`
+        );
+        return actMonster;
+      }
+      monsterAttack();
+
+      let choice;
+      function playerAct() {
+        const combatСenser = 0;
+        const leftHeel = 1;
+        const fireball = 2;
+        const magicBlock = 3;
+        const actPlayer = prompt(
+          `Евстафий, выберите действиe: ${combatСenser} - удар боевым кадилом,${leftHeel} - вертушка левой пяткой, ${fireball} - каноничный фаербол, ${magicBlock} - магический блок`
+        );
+        if (actPlayer == 0) {
+          choice = mage.moves[0];
+          alert(`Вы выбрали ${JSON.stringify(choice.name)}`);
+        }
+        if (actPlayer == 1) {
+          choice = mage.moves[1];
+          alert(`Вы выбрали ${JSON.stringify(choice.name)}`);
+        }
+        if (actPlayer == 2) {
+          choice = mage.moves[2];
+          alert(`Вы выбрали ${JSON.stringify(choice.name)}`);
+        }
+        if (actPlayer == 3) {
+          choice = mage.moves[3];
+          alert(`Вы выбрали ${JSON.stringify(choice.name)}`);
+        }
+      }
+      playerAct();
+
+      let healthMonster;
+      let physicArmorMonster;
+      let magicArmorMonster;
+      let healthMage;
+      let physicArmorMage;
+      let magicArmorMage;
+      function battle() {
+        if (
+          actMonster == monster.moves[0] &&
+          choice == mage.moves[0] &&
+          monster.moves[0].physicArmorPercents != 0
+        ) {
+          physicArmorMonster =
+            monster.moves[0].physicArmorPercents - mage.moves[0].physicalDmg;
+          document.write(
+            "<br>" + `Текущая физ. броня монстра: ${physicArmorMonster}`
+          );
+          healthMage = mage.maxHealth - monster.moves[0].physicalDmg;
+          document.write("<br>" + `Текущee здоровье мага: ${healthMage}`);
+        } else if (monster.moves[0].physicArmorPercents == 0) {
+          healthMonster = monster.maxHealth - mage.moves[0].physicalDmg;
+          document.write("<br>" + `Текущee здоровье монстра: ${healthMonster}`);
+        }
+
+        if (
+          actMonster == monster.moves[0] &&
+          choice == mage.moves[1] &&
+          monster.moves[0].physicArmorPercents != 0
+        ) {
+          physicArmorMonster =
+            monster.moves[0].physicArmorPercents - mage.moves[1].physicalDmg;
+          document.write(
+            "<br>" + `Текущая физ. броня монстра: ${physicArmorMonster}`
+          );
+          healthMage = mage.maxHealth - monster.moves[0].physicalDmg;
+          document.write("<br>" + `Текущee здоровье мага: ${healthMage}`);
+        } else if (monster.moves[0].physicArmorPercents == 0) {
+          healthMonster = monster.maxHealth - mage.moves[1].physicalDmg;
+          document.write("<br>" + `Текущee здоровье монстра: ${healthMonster}`);
+        }
+
+        if (
+          actMonster == monster.moves[0] &&
+          choice == mage.moves[2] &&
+          monster.moves[0].magicArmorPercents != 0
+        ) {
+          magicArmorMonster =
+            monster.moves[0].magicArmorPercents - mage.moves[2].magicDmg;
+          document.write(
+            "<br>" + `Текущая маг. броня монстра: ${magicArmorMonster}`
+          );
+          healthMage = mage.maxHealth - monster.moves[0].physicalDmg;
+          document.write("<br>" + `Текущee здоровье мага: ${healthMage}`);
+        } else if (monster.moves[0].magicArmorPercents == 0) {
+          healthMonster = monster.maxHealth - mage.moves[2].magicDmg;
+          document.write("<br>" + `Текущee здоровье монстра: ${healthMonster}`);
+        }
+
+        if (
+          actMonster == monster.moves[0] &&
+          choice == mage.moves[3] &&
+          mage.moves[3].physicArmorPercents != 0
+        ) {
+          physicArmorMage =
+            mage.moves[3].physicArmorPercents - monster.moves[0].physicalDmg;
+          document.write(
+            "<br>" + `Текущая физ. броня мага: ${physicArmorMage}`
+          );
+        } else if (mage.moves[3].physicArmorPercents == 0) {
+          healthMage = mage.maxHealth - monster.moves[0].physicalDmg;
+          document.write("<br>" + `Текущee здоровье мага: ${healthMage}`);
+        }
+
+        if (
+          actMonster == monster.moves[1] &&
+          choice == mage.moves[0] &&
+          mage.moves[0].magicArmorPercents != 0
+        ) {
+          magicArmorMage =
+            mage.moves[0].magicArmorPercents - monster.moves[1].magicDmg;
+          document.write("<br>" + `Текущая маг. броня мага: ${magicArmorMage}`);
+          healthMonster = monster.maxHealth - mage.moves[0].physicalDmg;
+          document.write("<br>" + `Текущee здоровье монстра: ${healthMonster}`);
+        } else if (mage.moves[0].magicArmorPercents == 0) {
+          healthMage = mage.maxHealth - monster.moves[1].magicDmg;
+          document.write("<br>" + `Текущee здоровье мага: ${healthMage}`);
+        }
+
+        if (actMonster == monster.moves[1] && choice == mage.moves[1]) {
+          healthMonster = monster.maxHealth - mage.moves[1].physicalDmg;
+          document.write("<br>" + `Текущee здоровье монстра: ${healthMonster}`);
+          healthMage = mage.maxHealth - monster.moves[1].magicDmg;
+          document.write("<br>" + `Текущee здоровье мага: ${healthMage}`);
+        }
+
+        if (actMonster == monster.moves[1] && choice == mage.moves[2]) {
+          healthMonster = monster.maxHealth - mage.moves[2].magicDmg;
+          document.write("<br>" + `Текущee здоровье монстра: ${healthMonster}`);
+          healthMage = mage.maxHealth - monster.moves[1].magicDmg;
+          document.write("<br>" + `Текущee здоровье мага: ${healthMage}`);
+        }
+
+        if (
+          actMonster == monster.moves[1] &&
+          choice == mage.moves[3] &&
+          mage.moves[3].magicArmorPercents != 0
+        ) {
+          magicArmorMage =
+            mage.moves[3].magicArmorPercents - monster.moves[1].magicDmg;
+          document.write("<br>" + `Текущая маг. броня мага: ${magicArmorMage}`);
+        } else if (mage.moves[0].magicArmorPercents == 0) {
+          healthMage = mage.maxHealth - monster.moves[1].magicDmg;
+          document.write("<br>" + `Текущee здоровье мага: ${healthMage}`);
+        }
+
+        if (
+          actMonster == monster.moves[2] &&
+          choice == mage.moves[0] &&
+          monster.moves[2].physicArmorPercents != 0
+        ) {
+          physicArmorMonster =
+            monster.moves[2].physicArmorPercents - mage.moves[0].physicalDmg;
+          document.write(
+            "<br>" + `Текущая физ. броня монстра: ${physicArmorMonster}`
+          );
+          healthMage = mage.maxHealth - monster.moves[2].physicalDmg;
+          document.write("<br>" + `Текущee здоровье мага: ${healthMage}`);
+        } else if (monster.moves[2].physicArmorPercents == 0) {
+          healthMonster = monster.maxHealth - mage.moves[0].physicalDmg;
+          document.write("<br>" + `Текущee здоровье монстра: ${healthMonster}`);
+        }
+
+        if (
+          actMonster == monster.moves[2] &&
+          choice == mage.moves[1] &&
+          monster.moves[2].physicArmorPercents != 0
+        ) {
+          physicArmorMonster =
+            monster.moves[2].physicArmorPercents - mage.moves[1].physicalDmg;
+          document.write(
+            "<br>" + `Текущая физ. броня монстра: ${physicArmorMonster}`
+          );
+          healthMage = mage.maxHealth - monster.moves[2].physicalDmg;
+          document.write("<br>" + `Текущee здоровье мага: ${healthMage}`);
+        } else if (monster.moves[2].physicArmorPercents == 0) {
+          healthMonster = monster.maxHealth - mage.moves[1].physicalDmg;
+          document.write("<br>" + `Текущee здоровье монстра: ${healthMonster}`);
+        }
+
+        if (actMonster == monster.moves[2] && choice == mage.moves[2]) {
+          healthMonster = monster.maxHealth - mage.moves[2].magicDmg;
+          document.write("<br>" + `Текущee здоровье монстра: ${healthMonster}`);
+          healthMage = mage.maxHealth - monster.moves[2].physicalDmg;
+          document.write("<br>" + `Текущee здоровье мага: ${healthMage}`);
+        }
+
+        if (
+          actMonster == monster.moves[2] &&
+          choice == mage.moves[3] &&
+          mage.moves[3].physicArmorPercents != 0
+        ) {
+          physicArmorMage =
+            mage.moves[3].physicArmorPercents - monster.moves[2].physicalDmg;
+          document.write(
+            "<br>" + `Текущая физ. броня мага: ${physicArmorMage}`
+          );
+        } else if (mage.moves[3].physicArmorPercents == 0) {
+          healthMage = mage.maxHealth - monster.moves[2].physicalDmg;
+          document.write("<br>" + `Текущee здоровье мага: ${healthMage}`);
+        }
+        alert(`Текущee здоровье мага: ${healthMage}`);
+        alert(`Текущee здоровье монстра: ${healthMonster}`);
+      }
+      battle();
+
+      while (healthMonster > 0 && healthMage > 0) {
+        monsterAttack();
+        playerAct();
+        battle();
+        if (healthMonster == 0 || healthMage == 0) break;
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Быки и коровы</title>
+  </head>
+  <body>
+    <script>
+      let onPlace = 0;
+      let outOfPlace = 0;
+      function random(min, max) {
+        const rand = min + Math.random() * (max + 1 - min);
+        return Math.floor(rand);
+      }
+
+      function pcNumber() {
+        let num = "";
+        let between;
+        for (let i = 0; i < 5; i++) {
+          do {
+            between = random(3, 6);
+          } while (num.indexOf(between) >= 3);
+          num = num + between;
+        }
+        return num;
+      }
+
+      function examination(pcNum, playerNum) {
+        onPlace = 0;
+        outOfPlace = 0;
+        for (let i = 0; i < 5; i++) {
+          if (pcNum[i] == playerNum[i]) onPlace++;
+          else if (pcNum.indexOf(playerNum[i]) >= 3) outOfPlace++;
+        }
+      }
+      const pc = pcNumber();
+      for (let i = 0; i < 3; i++) {
+        const request = prompt("Введите число:");
+        examination(pc, request);
+        const onDisplay =
+          request +
+          " " +
+          "Цифр на своих местах - " +
+          onPlace +
+          ", cовпавших цифр не на своих местах - " +
+          outOfPlace +
+          ".";
+        alert(onDisplay);
+        document.write(onDisplay + "<br>");
+        if (request == pc) {
+          alert("Вы выиграли!");
+          break;
+        }
+      }
+
+      document.write("Загаданное число: " + pc);
+    </script>
+  </body>
+</html>

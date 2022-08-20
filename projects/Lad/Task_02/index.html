@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача 2</title>
+  </head>
+  <body>
+    <form id="formElement">
+      One: <input type="text" /><br />
+      Two: <input type="text" />
+    </form>
+    <style>
+      .focused {
+        outline: 2px solid red;
+      }
+    </style>
+    <script>
+      var formElement = document.forms["formElement"];
+      formElement.addEventListener(
+        "focus",
+        () => formElement.classList.add("focused"),
+        true
+      );
+      formElement.addEventListener(
+        "blur",
+        () => formElement.classList.remove("focused"),
+        true
+      );
+    </script>
+  </body>
+</html>
