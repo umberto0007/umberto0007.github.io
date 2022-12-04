@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Game</title>
+  </head>
+  <body>
+    <script>
+      /*       const monster = {
+        maxHealth: 10,
+        name: 'Лютый',
+        moves: [
+          {
+            name: 'Удар когтистой лапой',
+            physicalDmg: 3, // физический урон
+            magicDmg: 0, // магический урон
+            physicArmorPercents: 20, // физическая броня
+            magicArmorPercents: 20, // магическая броня
+            cooldown: 0, // ходов на восстановление
+          },
+          {
+            name: 'Огненное дыхание',
+            physicalDmg: 0,
+            magicDmg: 4,
+            physicArmorPercents: 0,
+            magicArmorPercents: 0,
+            cooldown: 3,
+          },
+          {
+            name: 'Удар хвостом',
+            physicalDmg: 2,
+            magicDmg: 0,
+            physicArmorPercents: 50,
+            magicArmorPercents: 0,
+            cooldown: 2,
+          },
+        ],
+      };
+
+      moves: [
+        {
+          name: 'Удар боевым кадилом',
+          physicalDmg: 2,
+          magicDmg: 0,
+          physicArmorPercents: 0,
+          magicArmorPercents: 50,
+          cooldown: 0,
+        },
+        {
+          name: 'Вертушка левой пяткой',
+          physicalDmg: 4,
+          magicDmg: 0,
+          physicArmorPercents: 0,
+          magicArmorPercents: 0,
+          cooldown: 4,
+        },
+        {
+          name: 'Каноничный фаербол',
+          physicalDmg: 0,
+          magicDmg: 5,
+          physicArmorPercents: 0,
+          magicArmorPercents: 0,
+          cooldown: 3,
+        },
+        {
+          name: 'Магический блок',
+          physicalDmg: 0,
+          magicDmg: 0,
+          physicArmorPercents: 100,
+          magicArmorPercents: 100,
+          cooldown: 4,
+        },
+      ]; */
+
+      class Game {
+        constructor(moves) {
+          this.moves = moves;
+        }
+
+        battle() {
+          if (actMonster.physicArmorPercents === 0) {
+            monster.maxHealth -= choice.physicalDmg;
+            player.maxHealth -= actMonster.physicalDmg;
+            document.write(
+              '<br>' + `Текущee здоровье монстра: ${monster.maxHealth}`
+            );
+          } else {
+            actMonster.physicArmorPercents -= choice.physicalDmg;
+            document.write(
+              '<br>' +
+                `Текущая физ. броня монстра: ${actMonster.physicArmorPercents}`
+            );
+            player.maxHealth -= actMonster.physicalDmg;
+            document.write(
+              '<br>' + `Текущee здоровье мага: ${player.maxHealth}`
+            );
+          }
+          count++;
+
+          alert(`Текущee здоровье мага: ${player.maxHealth}`);
+          alert(`Текущee здоровье монстра: ${monster.maxHealth}`);
+        }
+      }
+
+      class Monster extends Game {
+        constructor(maxHealth, name, moves) {
+          super();
+          this.maxHealth = maxHealth;
+          this.name = name;
+          this.moves = [
+            {
+              name: 'Удар когтистой лапой',
+              physicalDmg: 3, // физический урон
+              magicDmg: 0, // магический урон
+              physicArmorPercents: 20, // физическая броня
+              magicArmorPercents: 20, // магическая броня
+              cooldown: 0, // ходов на восстановление
+            },
+            {
+              name: 'Огненное дыхание',
+              physicalDmg: 0,
+              magicDmg: 4,
+              physicArmorPercents: 0,
+              magicArmorPercents: 0,
+              cooldown: 3,
+            },
+            {
+              name: 'Удар хвостом',
+              physicalDmg: 2,
+              magicDmg: 0,
+              physicArmorPercents: 50,
+              magicArmorPercents: 0,
+              cooldown: 2,
+            },
+          ];
+        }
+        // Атака монстра.
+        monsterAttack() {
+          const rand = Math.floor(Math.random() * this.moves.length);
+          const actMonster = this.moves[rand];
+          const talkMonster = confirm(
+            `Лютый: использую ${JSON.stringify(actMonster.name)}!`
+          );
+          return actMonster;
+        }
+      }
+
+      class Player extends Game {
+        constructor(maxHealth, moves) {
+          super();
+          this.maxHealth;
+          this.moves = [
+            {
+              name: 'Удар боевым кадилом',
+              physicalDmg: 2,
+              magicDmg: 0,
+              physicArmorPercents: 0,
+              magicArmorPercents: 50,
+              cooldown: 0,
+            },
+            {
+              name: 'Вертушка левой пяткой',
+              physicalDmg: 4,
+              magicDmg: 0,
+              physicArmorPercents: 0,
+              magicArmorPercents: 0,
+              cooldown: 4,
+            },
+            {
+              name: 'Каноничный фаербол',
+              physicalDmg: 0,
+              magicDmg: 5,
+              physicArmorPercents: 0,
+              magicArmorPercents: 0,
+              cooldown: 3,
+            },
+            {
+              name: 'Магический блок',
+              physicalDmg: 0,
+              magicDmg: 0,
+              physicArmorPercents: 100,
+              magicArmorPercents: 100,
+              cooldown: 4,
+            },
+          ];
+        }
+        // Выбираем сложность игры с присвоением хп магу.
+        difficultySelection() {
+          const low = 'низкая';
+          const hi = 'высокая';
+          const diff = prompt(`Выбирете сложность игры: ${low} или ${hi}!`);
+          diff === low ? (this.maxHealth = 8) : (this.maxHealth = 6);
+
+          alert(
+            `Выбранная Вами сложность игры ${diff}. Согласно выбранному Вами уровню сложности здоровье Евстафия равно ${this.maxHealth}!`
+          );
+          document.write(
+            `Выбранная Вами сложность игры ${diff}. Согласно выбранному Вами уровню сложности здоровье Евстафия равно ${this.maxHealth}!`
+          );
+        }
+
+        // Выбор действия игроком.
+        playerAct() {
+          const actPlayer = +prompt(
+            'Евстафий, выберите действиe: 0 - удар боевым кадилом, 1 - вертушка левой пяткой, 2 - каноничный фаербол, 3 - магический блок'
+          );
+          if (actPlayer < 0 || actPlayer > 3 || actPlayer !== +actPlayer) {
+            alert('Ошибка! Выбирите число от 0 до 3!');
+            cycleAndfinishMessage();
+          }
+          const choice = this.moves[actPlayer];
+
+          alert(`Вы выбрали ${JSON.stringify(choice.name)}`);
+        }
+      }
+
+      const game = new Game();
+      const monster = new Monster(10, 'Лютый');
+      const player = new Player();
+      console.log(player);
+      player.difficultySelection();
+      monster.monsterAttack();
+      player.playerAct();
+      game.battle();
+    </script>
+  </body>
+</html>
